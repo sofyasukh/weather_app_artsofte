@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода для Artsofte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода</h1>
+        <div class="input-section">
+            <form id="weatherForm">
+                <div class="input-group">
+                    <label for="latitude">Широта:</label>
+                    <input type="text" id="latitude" placeholder="Например: 51.7727" required>
+                    <span class="error-message" id="latitudeError"></span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="longitude">Долгота:</label>
+                    <input type="text" id="longitude" placeholder="Например: 55.0988" required>
+                    <span class="error-message" id="longitudeError"></span>
+                </div>
+                
+                <button type="submit">Показать погоду</button>
+            </form>
+        </div>
+        
+        <div id="widgetsContainer" class="widgets-container"></div>
+    </div>
+    
+    <!-- Виджет погоды -->
+    <template id="weatherWidgetTemplate">
+        <div class="weather-widget">
+            <div class="widget-header">
+                <h3 class="widget-title">Погода здесь</h3>
+                <button class="btn-remove" type="button">X</button>
+            </div>
+            <div class="weather-main">
+                <div class="weather-icon"></div>
+                <div>
+                    <div class="temperature"></div>
+                    <div class="weather-description"></div>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="detail-label">Ветер</span>
+                    <span class="detail-value wind-speed"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Напр.</span>
+                    <span class="detail-value wind-direction"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Время</span>
+                    <span class="detail-value current-time"></span>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe class="map-iframe" width="100%" height="100%" title="Карта"></iframe>
+            </div>
+        </div>
+    </template>
+    
+    <script src="script.js"></script>
+</body>
+</html>
